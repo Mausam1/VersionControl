@@ -61,9 +61,29 @@ public static boolean isValidFilePath(String filePath) {
         
         while(arrayword.contains("")) 
               arrayword.remove("");
-               
-        System.out.println(arrayword);
+        Getuniquewords();
     }
+    
+     public static void Getuniquewords() {
+        Set<String> uniqueWords = new HashSet<String>(arrayword);
+        arrayallwords.addAll(arrayword);
+        arrayword.removeAll(arrayword);
+        arrayword.addAll(uniqueWords);
+        Collections.sort(arrayword);
+        System.out.println("\n1. List Of unique word : \n ");
+        for (String repeatation : arrayword) {
+            if (Collections.frequency(arrayallwords, repeatation) == 1) {
+                System.out.println(repeatation);
+            }
+        }
+        Getcountofwords();
+    }
+     
+     public static void Getcountofwords() {
+         
+     }
+
+    
     public static void main(String[] args) throws FileNotFoundException 
     {
         // TODO code application logic here
