@@ -79,10 +79,20 @@ public static boolean isValidFilePath(String filePath) {
         Getcountofwords();
     }
      
-     public static void Getcountofwords() {
-         
-     }
-
+   public static void Getcountofwords() {
+        System.out.println("\n2. count of occurrences of each word : \n ");
+        for (String repeatation : arrayword) {
+            System.out.println(repeatation + " " + " " + Collections.frequency(arrayallwords, repeatation));
+        }
+        Getwordslength();
+    }
+    
+    public static void Getwordslength(){
+        System.out.println("\n3. Show number of letters in each word : \n ");
+        for (int i=0; i<arrayword.size(); i++) {
+            System.out.println(arrayword.get(i) + " : " + arrayword.get(i).length());
+        }
+    }
     
     public static void main(String[] args) throws FileNotFoundException 
     {
