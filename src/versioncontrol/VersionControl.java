@@ -23,12 +23,13 @@ import java.util.Set;
  */
 
 public class VersionControl {
-public static ArrayList<String> arrayword = new ArrayList<String>();
-public static ArrayList<String> arrayallwords = new ArrayList<String>();
-    /**
+public static ArrayList<String> arrayword = new ArrayList<String>(); // We create this arraylist for  storing unique words.
+public static ArrayList<String> arrayallwords = new ArrayList<String>(); // store all words from a input file. 
+    /**6
      * @param args the command line arguments
      */
-public static boolean isValidFilePath(String filePath) {
+public static boolean isValidFilePath(String filePath) // check the entered filepath is correct or not.
+{
         File file = new File(filePath);
         if (file.exists() && !file.isDirectory()) {
             return true;
@@ -37,7 +38,8 @@ public static boolean isValidFilePath(String filePath) {
         }
     }
 
-    public static void Getfilepath() throws FileNotFoundException {
+    public static void Getfilepath() throws FileNotFoundException // This methode will ask user to enter filepath.
+    {
         Scanner sc = new Scanner(System.in);
         System.out.print("Input file name with extention .txt :: ");
         String filepath = sc.next();
@@ -49,7 +51,8 @@ public static boolean isValidFilePath(String filePath) {
         }
     }
     
-    public static void Readfiledata(String filepath) throws FileNotFoundException {
+    public static void Readfiledata(String filepath) throws FileNotFoundException // This methode will seprates words from file and add into the arraylist. If there is any special character in the files then there will be ignored.
+    {
         File inputFile = new File(filepath);
         Scanner sc = new Scanner(inputFile);
         while (sc.hasNext()) {
@@ -64,7 +67,8 @@ public static boolean isValidFilePath(String filePath) {
         Getuniquewords();
     }
     
-     public static void Getuniquewords() {
+     public static void Getuniquewords() // This methode will find the unique words and print those words.
+     {
         Set<String> uniqueWords = new HashSet<String>(arrayword);
         arrayallwords.addAll(arrayword);
         arrayword.removeAll(arrayword);
@@ -79,7 +83,8 @@ public static boolean isValidFilePath(String filePath) {
         Getcountofwords();
     }
      
-   public static void Getcountofwords() {
+   public static void Getcountofwords() // This methode will find the count of occurence of each word and print those words with their count of occurence.
+   {
         System.out.println("\n2. count of occurrences of each word : \n ");
         for (String repeatation : arrayword) {
             System.out.println(repeatation + " " + " " + Collections.frequency(arrayallwords, repeatation));
@@ -87,7 +92,8 @@ public static boolean isValidFilePath(String filePath) {
         Getwordslength();
     }
     
-    public static void Getwordslength(){
+    public static void Getwordslength() // This methode will find the length of each words and print those words with their lenght.
+    {
         System.out.println("\n3. Show number of letters in each word : \n ");
         for (int i=0; i<arrayword.size(); i++) {
             System.out.println(arrayword.get(i) + " : " + arrayword.get(i).length());
@@ -101,3 +107,4 @@ public static boolean isValidFilePath(String filePath) {
     }
     
 }
+
